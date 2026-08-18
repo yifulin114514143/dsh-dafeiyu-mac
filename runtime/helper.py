@@ -239,17 +239,11 @@ def run_visual(recorder: EventRecorder, snapshot_path: Path | None = None) -> in
                 self._schedule_micro()
             self.snapshot_saved = False
             self.setWindowTitle("DSH 大肥鱼")
-            window_flags = (
+            self.setWindowFlags(
                 Qt.WindowType.FramelessWindowHint
                 | Qt.WindowType.WindowStaysOnTopHint
                 | Qt.WindowType.Tool
             )
-            if sys.platform == "darwin":
-                # Keep the frameless tool window above normal apps, visible in
-                # every Space, and prevent clicks from stealing keyboard focus
-                # from the user's active app.
-                window_flags |= Qt.WindowType.WindowDoesNotAcceptFocus
-            self.setWindowFlags(window_flags)
             self.setAttribute(Qt.WidgetAttribute.WA_TranslucentBackground, True)
             if sys.platform == "darwin":
                 self.setAttribute(Qt.WidgetAttribute.WA_MacAlwaysShowToolWindow, True)

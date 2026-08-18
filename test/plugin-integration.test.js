@@ -13,6 +13,11 @@ test('package metadata exposes the DSH web client bundle', () => {
   assert.equal(metadata.dsh.client.platform, 'web')
 })
 
+test('settings plugin registration supplies the keyed-slot key required by DSH', async () => {
+  const client = await readFile(new URL('../lib/client.js', import.meta.url), 'utf8')
+  assert.match(client, /name: 'settings\.plugin\.item', key: 'dsh-dafeiyu'/)
+})
+
 async function waitFor(predicate, timeoutMs = 5000) {
   const deadline = Date.now() + timeoutMs
   while (Date.now() < deadline) {
