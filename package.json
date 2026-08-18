@@ -1,0 +1,89 @@
+{
+  "name": "dsh-dafeiyu",
+  "version": "0.1.0-mac.1",
+  "description": "macOS desktop-native BigFish companion driven by DeepSeek Harness session events.",
+  "author": "QCYTSN (macOS port by yifulin114514143)",
+  "type": "module",
+  "main": "src/index.js",
+  "exports": {
+    ".": "./src/index.js",
+    "./client": "./lib/client.js",
+    "./protocol": "./src/protocol.js",
+    "./reducer": "./src/companion-reducer.js",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "src/",
+    "lib/client.js",
+    "runtime/helper.py",
+    "runtime/animation_model.py",
+    "runtime/layout_store.py",
+    "runtime/__init__.py",
+    "runtime/bin/darwin-arm64/dsh-dafeiyu-helper",
+    "scripts/build-helper.sh",
+    "assets/pet/",
+    "assets/pet-manifest.json",
+    "docs/",
+    "cordis.patch.yml",
+    "requirements.txt",
+    "README.md",
+    "README_EN.md",
+    "CHANGELOG.md",
+    "ASSET_LICENSE.md",
+    "LICENSE"
+  ],
+  "os": [
+    "darwin"
+  ],
+  "cpu": [
+    "arm64"
+  ],
+  "engines": {
+    "node": ">=22.19"
+  },
+  "dependencies": {
+    "@deepseek-ai/schemastery": "^3.18.1"
+  },
+  "scripts": {
+    "test": "node --test --test-timeout=10000 test/assets.test.js test/config-endpoint.test.js test/protocol.test.js test/status-copy.test.js test/reducer.test.js test/helper-lifecycle.test.js test/helper-restart.test.js test/plugin-integration.test.js",
+    "test:helper": "node --test test/helper-lifecycle.test.js",
+    "test:python": "python3 -m unittest discover -s runtime/tests -t .",
+    "test:ui": "node test/fixtures/ui-acceptance.js",
+    "helper:headless": "python3 runtime/helper.py --headless",
+    "helper:visual": "python3 runtime/helper.py",
+    "build:helper:mac": "bash scripts/build-helper.sh"
+  },
+  "dsh": {
+    "client": {
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-settings-plugins"
+      ],
+      "platform": "web"
+    },
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  },
+  "keywords": [
+    "deepseek-harness",
+    "dsh-plugin",
+    "desktop-pet",
+    "agent-companion",
+    "macos"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yifulin114514143/dsh-dafeiyu-mac.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yifulin114514143/dsh-dafeiyu-mac/issues"
+  },
+  "homepage": "https://github.com/yifulin114514143/dsh-dafeiyu-mac#readme",
+  "publishConfig": {
+    "access": "public"
+  },
+  "license": "SEE LICENSE IN ASSET_LICENSE.md",
+  "devDependencies": {
+    "playwright-core": "^1.62.1"
+  }
+}
