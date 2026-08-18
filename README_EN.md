@@ -108,13 +108,16 @@ installation or upgrade.
 
 This repository is a **macOS port** of
 [nolodjska/dsh-dafeiyu](https://github.com/nolodjska/dsh-dafeiyu) and is **not published to npm**.
-Clone the repository (or
-download a ready-made `dsh-dafeiyu-<version>.tgz` from
-[GitHub Releases](https://github.com/yifulin114514143/dsh-dafeiyu-mac/releases/tag/v0.1.0-mac.1)), then in the
-repository directory run:
+**We recommend downloading the ready-made `dsh-dafeiyu-<version>.tgz` from
+[GitHub Releases](https://github.com/yifulin114514143/dsh-dafeiyu-mac/releases/tag/v0.1.0-mac.1)**;
+it already contains the Apple Silicon Helper.
+
+To build from source, first install Python, PySide6-Essentials, and PyInstaller,
+build the Helper, and then run `npm pack`:
 
 ```bash
 cd /path/to/dsh-dafeiyu-mac
+npm run build:helper:mac
 npm pack
 ```
 

@@ -3,20 +3,9 @@
 大肥鱼由 DSH 的 `web` profile 管理。Helper 不提供独立更新器，也不要手动替换
 `dsh-dafeiyu-helper`。
 
-## 从 npm Alpha 更新
+## 更新说明
 
-1. 完全退出 DSH。
-2. 在 DSH 安装目录运行：
-
-```bash
-pnpm exec dsh plugin --profile web update dsh-dafeiyu@alpha
-```
-
-也可以重新执行安装命令：
-
-```bash
-pnpm exec dsh plugin --profile web add dsh-dafeiyu@alpha
-```
+当前 macOS 移植版**尚未发布到 npm**，请使用 GitHub Release 的 `.tgz` 或本地源码包更新。
 
 ## 从 GitHub Release 安装包更新
 
@@ -47,4 +36,4 @@ pnpm exec dsh plugin --profile web remove dsh-dafeiyu
 ```
 
 当前 Alpha 包尚未提供自动更新检查，因此 GitHub 仓库出现新提交不会自动改变已经
-安装的插件；只有发布新版本并由用户执行 npm 或 Release 包更新后，安装内容才会变化。
+安装的插件；只有发布新版本并由用户执行 Release 包或本地源码包更新后，安装内容才会变化。

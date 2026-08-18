@@ -101,12 +101,16 @@ stateDiagram-v2
 
 ### 2. 从源码打包安装
 
-本仓库未发布到 npm，需要先在仓库目录打包出 `.tgz`。克隆仓库（或在
+本仓库未发布到 npm，需要先在仓库目录打包出 `.tgz`。**推荐直接下载
 [GitHub Releases](https://github.com/yifulin114514143/dsh-dafeiyu-mac/releases/tag/v0.1.0-mac.1)
-下载现成的 `dsh-dafeiyu-<version>.tgz`），然后在仓库目录执行：
+中的 `dsh-dafeiyu-<version>.tgz`**，里面已经包含 Apple Silicon Helper。
+
+如果要从源码自行打包，请先确保已安装 Python、PySide6-Essentials 和 PyInstaller，
+并先构建 Helper，再执行 `npm pack`：
 
 ```bash
 cd /path/to/dsh-dafeiyu-mac
+npm run build:helper:mac
 npm pack
 ```
 
