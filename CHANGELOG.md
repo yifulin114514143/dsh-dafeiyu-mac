@@ -7,7 +7,7 @@ macOS 移植版首个 Alpha。
 ### Highlights
 
 - 将 Windows 版 DSH 大肥鱼移植到 macOS 14+ Apple Silicon (arm64)
-- Helper 使用 PySide6 透明无边框置顶窗口，适配 macOS 窗口行为（所有 Space 可见）
+- Helper 使用 PySide6 透明无边框置顶窗口，适配 macOS 窗口行为（所有 Space 可见、点击不抢键盘焦点）
 - 「打开文件夹」改用 `open` 在 Finder 中显示
 - 布局默认保存到 `~/Library/Application Support/DSH/dsh-dafeiyu/`
 - 新增 `scripts/build-helper.sh` 构建 Apple Silicon Helper
